@@ -31,7 +31,7 @@ ll pow10(ll x) {
     return ans;
 }
 
-void solve_part1(std::vector<std::pair<ll, ll> > &v) {
+void solve_part1(const std::vector<std::pair<ll, ll> > &v) {
     long long ans = 0;
     for(ll i = 1; i < 1000000; i++) {
         ll p10 = pow10(log10(i));
@@ -43,7 +43,7 @@ void solve_part1(std::vector<std::pair<ll, ll> > &v) {
     }
     std::cout << ans << '\n';
 }
-void solve_part2(std::vector<std::pair<ll, ll> > &v) {
+void solve_part2(const std::vector<std::pair<ll, ll> > &v) {
     long long ans = 0;
     std::set<ll> s;
     for(ll i = 1; i < 1000000; i++) {

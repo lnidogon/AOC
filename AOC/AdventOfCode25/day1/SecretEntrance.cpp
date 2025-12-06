@@ -8,7 +8,7 @@ void parse_input(std::vector<int> &v) {
     while(std::getline(std::cin, s)) v.push_back({(s[0] == 'R' ? 1 : -1) * std::stoi(s.substr(1, s.size() - 1))});
 }
 
-void solve_part1(std::vector<int> &v) {
+void solve_part1(const std::vector<int> &v) {
     int s = 50;
     int ans = 0;
     for(auto t : v) {
@@ -18,7 +18,7 @@ void solve_part1(std::vector<int> &v) {
     std::cout << ans << '\n';
 }
 
-void solve_part2(std::vector<int> &v) {
+void solve_part2(const std::vector<int> &v) {
     int s = 50;
     int ans = 0;
     for(auto t : v) {

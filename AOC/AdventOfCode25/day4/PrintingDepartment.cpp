@@ -10,7 +10,7 @@ void parse_input(std::vector<std::string> &v) {
     std::string s;
     while(std::getline(std::cin, s)) v.push_back(s);
 }
-int no_adjacent(int i, int j, std::vector<std::string> &v) {
+int no_adjacent(int i, int j, const std::vector<std::string> &v) {
     int ret = 0;
     for(int k = 0; k < 8; k++) {
         int x = i + dx[k];
@@ -21,7 +21,7 @@ int no_adjacent(int i, int j, std::vector<std::string> &v) {
     return ret;
 }
 
-void solve_part1(std::vector<std::string> &v) {
+void solve_part1(const std::vector<std::string> &v) {
     int ans = 0;
     for(int i = 0; i < (int)v.size(); i++)  {
         for(int j = 0; j < (int)v[i].size(); j++) {
@@ -32,13 +32,14 @@ void solve_part1(std::vector<std::string> &v) {
     }
     std::cout << ans << '\n';
 }
-void solve_part2(std::vector<std::string> &v) {
-    int n = v.size(), m = v.back().size();
+void solve_part2(const std::vector<std::string> &v) {
+    std::vector<std::string> v_c = v;
+    int n = v_c.size(), m = v_c.back().size();
     int ans = 0;
     std::vector<std::pair<int, int> > s;
-    for(int i = 0; i < n; i++) for(int j = 0; j < m; j++) if(v[i][j] == '@' && no_adjacent(i, j, v) < 4) {
+    for(int i = 0; i < n; i++) for(int j = 0; j < m; j++) if(v_c[i][j] == '@' && no_adjacent(i, j, v_c) < 4) {
         s.push_back({i, j});
-        v[i][j] = '.';
+        v_c[i][j] = '.';
     }
     while(s.size()) {
         auto p = s.back();
@@ -46,9 +47,9 @@ void solve_part2(std::vector<std::string> &v) {
         ans++;
 
         for(int i = std::max(p.first - 1, 0); i <= std::min(p.first + 1, n - 1); i++) for(int j = std::max(p.second - 1, 0); j <= std::min(p.second + 1, m - 1); j++) {
-            if(v[i][j] == '@' && no_adjacent(i, j, v) < 4) {
+            if(v_c[i][j] == '@' && no_adjacent(i, j, v_c) < 4) {
                 s.push_back({i, j});
-                v[i][j] = '.';
+                v_c[i][j] = '.';
             }
         }
     }

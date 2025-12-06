@@ -17,7 +17,7 @@ void parse_input(std::vector<std::pair<ll, ll> > &r, std::vector<ll> &q) {
     while(std::getline(std::cin, s)) {q.push_back(std::stoll(s));}
 }
 
-void solve_part1(std::vector<std::pair<ll, ll> > &r, std::vector<ll> &q) {
+void solve_part1(const std::vector<std::pair<ll, ll> > &r, const std::vector<ll> &q) {
     std::set<std::pair<ll, ll> > s, a;
     for(auto t : r) s.insert(t);
     std::sort(q.begin(), q.end());
@@ -33,7 +33,7 @@ void solve_part1(std::vector<std::pair<ll, ll> > &r, std::vector<ll> &q) {
     std::cout << ans << '\n';
 }
 
-void solve_part2(std::vector<std::pair<ll, ll> > &r) {
+void solve_part2(const std::vector<std::pair<ll, ll> > &r) {
     std::set<std::pair<ll, ll> > s, a;
     ll ans = 0;
     for(auto t : r) s.insert(t);

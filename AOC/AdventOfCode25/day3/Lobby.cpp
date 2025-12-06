@@ -6,7 +6,7 @@ void parse_input(std::vector<std::string> &v) {
     std::string s;
     while(std::getline(std::cin, s)) v.push_back(s);
 }
-void solve_part1(std::vector<std::string> &v) {
+void solve_part1(const std::vector<std::string> &v) {
     int ans = 0;
     for(auto s : v) {
         int mp = 0, mv = 0;
@@ -17,7 +17,7 @@ void solve_part1(std::vector<std::string> &v) {
     }
     std::cout << ans << '\n';
 }
-void solve_part2(std::vector<std::string> &v) {
+void solve_part2(const std::vector<std::string> &v) {
     long long ans = 0;
     for(auto s : v) {
         long long cans = 0;
